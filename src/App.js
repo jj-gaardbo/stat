@@ -1,21 +1,34 @@
 import React, { Component } from 'react';
-import logo from './assets/images/logo.png';
-import SCSS from './assets/scss/app.scss';
-import WelcomeMessage from './components/WelcomeMessage.jsx';
+import {AppBar, CssBaseline, Paper, Toolbar, Typography} from "material-ui";
+import {MuiThemeProvider, createMuiTheme} from 'material-ui/styles';
+import HeaderBar from "./components/HeaderBar.jsx";
+import {BrowserRouter, Route} from "react-router-dom";
+import OverviewContainer from "./containers/OverviewContainer.jsx";
 
-const appData = {
-    title: 'ReactElectron Demo App'
-}
+const theme = createMuiTheme({
+    palette: {
+        type: 'dark',
+    },
+});
 
 export default class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <div className="App-header">
-            <WelcomeMessage data={appData}/>
-          <img src={logo} className="App-logo" alt="logo" />
-        </div>
-      </div>
-    );
-  }
+    render() {
+        return (
+            <MuiThemeProvider theme={theme}>
+                <div className="App">
+                    <Paper>
+
+                        <CssBaseline/>
+
+                        <HeaderBar />
+
+                        <BrowserRouter>
+                            <Route exact path='/overview' component={OverviewContainer}/>
+                        </BrowserRouter>
+
+                    </Paper>
+                </div>
+            </MuiThemeProvider>
+        );
+    }
 }
