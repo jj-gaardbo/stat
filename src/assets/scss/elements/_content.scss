@@ -1,0 +1,9 @@
+.content{
+  padding-left: $drawer-width+$gutter;
+  padding-top: $header-height+$gutter;
+  padding-bottom: $gutter;
+  padding-right: $gutter;
+  min-height: 100vh;
+  text-align: left;
+  align-items: left;
+}

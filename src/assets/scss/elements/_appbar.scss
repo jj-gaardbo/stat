@@ -1,0 +1,7 @@
+.app-bar {
+  align-items: left;
+}
+
+.app-bar > div{
+  left: $drawer-width;
+}
